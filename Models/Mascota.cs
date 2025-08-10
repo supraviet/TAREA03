@@ -1,4 +1,4 @@
-namespace TAREA3.Models
+namespace TAREA_semana3.Models
 {
     public class Mascota
     {

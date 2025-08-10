@@ -1,0 +1,30 @@
+@model IEnumerable<TAREA_semana3.Models.ProductoMascota>
+@{
+    ViewData["Title"] = "Productos para Mascotas";
+}
+
+<h2 class="text-center mb-4">Productos para Mascotas</h2>
+
+<a asp-action="Create" class="btn btn-primary mb-3">Agregar Producto</a>
+
+<table class="table table-striped table-hover">
+    <thead class="table-dark">
+        <tr>
+            <th>Nombre</th>
+            <th>Descripción</th>
+            <th>Precio</th>
+            <th>Categoría</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var p in Model)
+        {
+            <tr>
+                <td>@p.Nombre</td>
+                <td>@p.Descripcion</td>
+                <td>@p.Precio.ToString("C")</td>
+                <td>@p.Categoria</td>
+            </tr>
+        }
+    </tbody>
+</table>
