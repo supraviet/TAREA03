@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
-using TAREA3.Models;
+using TAREA_semana3.Models;
 
-namespace TAREA3.Controllers
+namespace TAREA_semana3.Controllers
 {
     public class MascotasController : Controller
     {

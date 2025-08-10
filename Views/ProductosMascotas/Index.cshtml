@@ -1,0 +1,53 @@
+@model IEnumerable<TAREA_semana3.Models.ProductoMascota>
+@{
+    ViewData["Title"] = "Productos para Mascotas - HappyPawns";
+}
+
+<div class="container my-5">
+    <h1 class="text-center mb-4 text-success fw-bold">
+        🐾 Productos para Mascotas - HappyPawns 🐾
+    </h1>
+
+    <div class="text-center mb-4">
+        <a asp-action="Create" class="btn btn-lg btn-success shadow-sm px-4">
+            ➕ Agregar Nuevo Producto
+        </a>
+    </div>
+
+    @if (Model != null && Model.Any())
+    {
+        <div class="row g-4">
+            @foreach (var p in Model)
+            {
+                <div class="col-md-4 col-sm-6">
+                    <div class="card shadow-lg border-0 h-100">
+                        <img src="https://place-puppy.com/300x200" class="card-img-top" alt="Imagen de @p.Nombre">
+                        <div class="card-body">
+                            <h5 class="card-title text-success fw-bold">@p.Nombre</h5>
+                            <p class="card-text text-muted">@p.Descripcion</p>
+                            <p class="fw-bold text-primary">@p.Precio.ToString("C")</p>
+                            <span class="badge bg-info text-dark">@p.Categoria</span>
+                        </div>
+                        <div class="card-footer bg-white border-0 text-center">
+                            <a asp-action="Details" asp-route-id="@p.Id" class="btn btn-outline-primary btn-sm">
+                                👁 Ver Detalles
+                            </a>
+                            <a asp-action="Edit" asp-route-id="@p.Id" class="btn btn-outline-warning btn-sm">
+                                ✏ Editar
+                            </a>
+                            <a asp-action="Delete" asp-route-id="@p.Id" class="btn btn-outline-danger btn-sm">
+                                🗑 Eliminar
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    }
+    else
+    {
+        <div class="alert alert-warning text-center">
+            😿 No hay productos registrados todavía. ¡Agrega uno para empezar!
+        </div>
+    }
+</div>
